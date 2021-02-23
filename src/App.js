@@ -84,18 +84,17 @@ function Users() {
  const [users, setUser] = useState([])
  useEffect(()=>{
    fetch('https://jsonplaceholder.typicode.com/users')
-   .than(res => res.json())
-   .than(data =>setUser(data))
+   .then(res => res.json())
+   .then(data =>setUser(data))
 
  })
 
   return (
     <div>
       <h3>Dynamic Users : {users.length} </h3>
-      <ul>
-        {users.map(user => <li>{user.name}</li>)}
-        {users.map(user => <li>{user.email}</li>)}
-      </ul>
+      <ol>
+        {users.map(user => <li>{` name : ${user.name} email : ${user.email}`}</li>)}
+      </ol>
     </div>
   )
   
